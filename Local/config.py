@@ -1,0 +1,5 @@
+API_URL = "http://localhost/comicsmexico/backend/"
+FTPS_HOST = "ftp.tuservidor.com"
+FTPS_USER = "usuario"
+FTPS_PASS = "password"
+LOCAL_COMICS_IMG = "resources/comicsImg/"
