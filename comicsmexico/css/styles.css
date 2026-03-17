@@ -1,0 +1,430 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #303030;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #BC2B42;
+    color: white;
+    padding: 10px 20px;
+}
+
+header a.logo img {
+    height: 50px;
+}
+
+.header-left, .header-center, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* ===== BARRA DE BÚSQUEDA ===== */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.search-bar input {
+    width: 400px;
+    max-width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    background-color: #2A2A2A;
+    color: white;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.search-bar input:focus {
+    background-color: #3A3A3A;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* Botones header */
+.header-right button {
+    margin-left: 10px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #303030;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Dropdown */
+.user-menu {
+    position: relative;
+}
+
+.user-menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 32px;
+    right: 0;
+    background: white;
+    color: #333;
+    border-radius: 6px;
+    overflow: hidden;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.user-menu .dropdown a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+}
+
+.user-menu .dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+/* ===== MAIN ===== */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Carrusel */
+.carousel {
+    margin: 20px auto;
+    max-width: 1000px;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* Flechas del carrusel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s;
+    z-index: 1000;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev {
+    left: 15px;
+}
+
+.carousel-btn.next {
+    right: 15px;
+}
+
+/* Catálogo */
+.catalog {
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.catalog h2 {
+    margin: 20px 0 10px;
+    color: #BC2B42;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Fila de cómics */
+.comic-row {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+}
+
+/* Fila-carrusel con flechas */
+.row-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+.row-wrapper .comic-row {
+    padding: 10px 50px;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+/* Botones de navegación fila */
+.row-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: background 0.18s;
+}
+
+.row-btn:hover {
+    background: rgba(255,255,255,0.16);
+}
+
+.row-btn.prev {
+    left: 8px;
+}
+
+.row-btn.next {
+    right: 8px;
+}
+
+/* Scrollbar */
+.comic-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.comic-row::-webkit-scrollbar-thumb {
+    background: #BC2B42;
+    border-radius: 4px;
+}
+
+.comic-row::-webkit-scrollbar-track {
+    background: #555;
+}
+
+/* Cada cómic */
+.comic {
+    flex: 0 0 200px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comic:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.comic img {
+    max-width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+    height: 250px;
+}
+
+.comic h3 {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.comic p {
+    font-size: 14px;
+    color: #666;
+}
+
+.comic span {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #BC2B42;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Hamburger */
+.hamburger {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* ===== MENÚ LATERAL ===== */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #1F1F1F;
+    color: white;
+    padding: 20px;
+    transition: 0.3s;
+    z-index: 2000;
+}
+
+.side-menu ul {
+    list-style: none;
+    margin-top: 40px;
+    padding: 0;
+}
+
+.side-menu ul li {
+    margin: 0;
+    border-bottom: 1px solid #ffffff50;
+}
+
+.side-menu ul li:last-child {
+    border-bottom: none;
+}
+
+.side-menu ul li a {
+    display: block;
+    padding: 15px 0;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.side-menu ul li a:hover {
+    background-color: #2A2A2A;
+    padding-left: 10px;
+    transition: 0.2s;
+}
+
+.side-menu .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.covers-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cover {
+    text-align: center;
+    width: 150px;
+    background: #f5f5f5;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.cover img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.cover p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 3px;
+}
